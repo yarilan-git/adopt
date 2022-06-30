@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <div id="content_area">
+    <h1>{{title}}</h1>
+
+    <form action="/">
+        {{ pet_form.hidden_tag ( ) }}
+
+        <div class="form_line">
+              {{pet_form.name.label(class_="label")}}
+              {{pet_form.name}}
+        </div>
+        <div class="form_line">
+        
+          {{pet_form.species.label(class_="label")}}
+          {{pet_form.species}}
+        </div>
+        <div class="form_line">
+          {{pet_form.photo.label(class_="label")}}
+          {{pet_form.photo}}
+          {% if pet_form.photo.errors %}
+            <div class="message">
+              {% for error in pet_form.photo.errors %}
+                    {{error}}
+              {% endfor %}
+            </div>
+          {% endif %}
+            
+        </div>
+        <div class="form_line">
+          {{pet_form.age.label(class_="label")}}
+          {{pet_form.age}}
+          {% if pet_form.age.errors %}
+          <div class="message">
+            {% for error in pet_form.age.errors %}
+                  {{error}}
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form_line">
+          {{pet_form.available.label(class_="label")}}
+          {{pet_form.available}}
+        </div>
+        <div class="form_line">
+          <div class="textarea_label">
+              Notes
+          </div>
+          {{pet_form.notes(class_='textarea', cols='21', rows='5')}}
+        </div>
+
+        {% set save_action="/" + pet.id|string + "/edit" %}
+        <div class="form_line">
+          <button formmethod="GET" class="inline" type="submit">Cancel</button>
+          <button formaction={{save_action}} formmethod='POST' class="inline" type="submit">Save changes</button>
+      </div>
+
+    </form>
+  </div>
+    
+        
+{% endblock %}

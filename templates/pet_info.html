@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% set action='/' + pet.id|string + '/edit' %}
+
+  <div id="content_area">
+    <h1>{{pet.name}}</h1>
+
+        <img src={{pet.photo_url}} alt="">
+        <div class="form_line">
+            {{ pet.species}}
+        </div>
+        <div class="form_line">
+            <h3>Age: {% if pet.age %}{{ pet.age}} {% else %} Unknown {% endif %}</h3>
+        </div>
+        <div class="form_line">
+            <h3>Specie: {% if pet.specie %}{{ pet.specie.name}} {% else %} Unknown {% endif %}</h3>
+        </div>
+        <div class="form_line">
+            <h3>{% if pet.available %}Available for adoption {% else %} Not available for adoption{% endif %}</h3>
+            
+        </div>
+        <div class="form_line">
+            {% if pet.notes %}<h3>{{ pet.notes}}</h3>{% endif %}
+            
+        </div>
+
+        <form action="/">
+            <div class="form_line">
+                <button formmethod="GET" class="inline" type="submit">Go back</button>
+                <button formaction={{action}} formmethod='POST' class="inline" type="submit">Edit pet info</button>
+            </div>
+        </form>
+  </div>
+    
+        
+{% endblock %}

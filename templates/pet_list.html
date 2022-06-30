@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <div id="content_area">
+    <h1>Pets</h1>
+  
+    {% for pet in pets %}
+      {% set destination='/' + pet.id|string %}
+      <a href={{destination}}>
+        <div class="pet_card">
+            {% if pet.available %}
+                {% set availability = " is available!" %}
+            {% else %}
+            {% set availability = " is not available!" %}
+            {% endif %}
+            <img src={{pet.photo_url}} ><br>
+            
+            <div>{{pet.name}}<b>{{availability}}</b></div>
+            
+        </div>
+      </a>
+    {% endfor %}
+    <form action="/add">
+      <button type="submit">Add a pet</button>
+    </form>
+  </div>
+    
+        
+{% endblock %}

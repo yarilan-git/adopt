@@ -1,0 +1,158 @@
+/* form { 
+    margin-top: 30px;
+    margin-left: 50px;
+} */
+
+.form_line, button {
+    display: block; 
+}
+
+.form_element  {
+    display: block;
+    width: 200px;
+    height: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.label {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 30px;
+    text-align: left;
+    width: 80px;
+    
+}
+
+button {
+    width: 150px;
+    height: 30px;    
+    /* margin-top: 20px; */
+    margin-top: 20px;
+    margin-left: 7px;
+    margin-bottom: 20px;
+    background-color:lightblue;
+    border-radius:  5px;
+}
+
+#cancel {
+    background-color: white;
+    color: black;
+}
+
+#delete {
+    background-color: lightcoral;
+    columns: white ;
+}
+
+
+#buttons {
+     margin-left: 0%;
+}
+
+.message {
+    font-size: larger;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: crimson;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 400px;
+    height: 50px;
+}
+
+#result     {
+    margin-left: 110px;
+}
+
+#content_area {
+    width: 80vw;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.inline     {
+    display: inline-block;
+}
+
+
+
+.user_details   {
+    display: inline-block;
+}
+
+h1  {
+    margin-top: 0%;
+}
+
+#dits {
+    /* position: relative; */
+    top: 10px;
+    margin-left: 5px;
+    }
+
+#horizontal_label {
+    width: 50px;
+    display: inline-block;
+    text-align:inherit;
+    border: 1px solid black;
+}
+
+
+
+#title, #content  {
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+#content    {
+    height: 300px;
+    vertical-align:text-top;
+    overflow-wrap: normal;
+}
+
+.textarea    {
+    width: 13em;
+    height: 5em;
+    margin-top: 2em;
+}
+.textarea_label {
+    display:inline-block;
+    height: 5em;
+    margin-left: 20px;
+    width: 80px;
+}
+
+.tag    {
+    display: inline-block;
+    border-radius: 3px;
+    background-color: blue;
+    color: white;
+    padding: 3px;
+}
+
+.caption  {
+    text-align: center;
+
+}
+
+.pet_card   {
+    border: 1px solid black;
+    /* width: 200px; */
+    display: inline-block;
+}
+
+img     {
+    width: 100px;
+    height: 200px;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+
