@@ -29,6 +29,19 @@ class Specie(db.Model):
                    autoincrement = True)
     name    = db.Column(db.String(50), nullable=False)
 
+    @classmethod
+    def bring_selected_to_top(self, id):
+        ordered = []
+        selected = Specie.query.get(id)
+        ordered.append((selected.id, selected.name))
+        
+        all= Specie.query.all()
+        for specie in all:
+                if specie.id != id:
+                    ordered.append((specie.id, specie.name))
+        return ordered
+
+
 class Pet(db.Model):
     __tablename__ = 'pet'
 
@@ -46,14 +59,15 @@ class Pet(db.Model):
     specie      = db.relationship('Specie', backref='pets')
 
     def __repr__(self):
-        return f"id: {self.id}, name: {self.name}, species: {self.species}, url: {self.photo_url}, age: {self.age}, notes: {self.notes}, available: {self.available}"
+        return f"id: {self.id}, name: {self.name}, species: {self.specie_id}, url: {self.photo_url}, age: {self.age}, notes: {self.notes}, available: {self.available}"
 
     @classmethod
     def get_all_pets(self):
         return Pet.query.all()
-        # return db.session.query(Pet.name, Pet.photo_url, Pet.available).all()
     
     def get_pet_info(id):
         return Pet.query.get(id)
+
+
 
     

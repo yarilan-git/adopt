@@ -4,6 +4,7 @@ from flask  import Flask, render_template, request, flash, jsonify, redirect, se
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet, Specie
 
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '123456'
@@ -58,9 +59,8 @@ def edit_pet_info(id):
         a pet's information. If reached via a POST method, validates the data provided by the user. If the validation passes, updates the pet's data in the database.Otherwise, re-renders the form with error messages."""
 
     pet=Pet.get_pet_info(id)
-    pet_form=Add_pet(obj=pet)    
-    pet_form.species.choices=[(specie.id, specie.name) for specie in Specie.query.all()]
-    pet_form.species.process_data(pet.specie_id)
+    pet_form=Add_pet(obj=pet)
+    pet_form.species.choices=Specie.bring_selected_to_top(pet.specie_id)  
     if pet_form.validate_on_submit():
         pet.name=pet_form.name.data
         pet.specie_id=pet_form.species.data
